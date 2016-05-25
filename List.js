@@ -170,9 +170,12 @@ var List = function()
             } else if (ele.next && !ele.prev) {
                 first      = ele.next;
                 first.prev = null;
-            } else {
+            } else if (!ele.next && ele.prev) {
                 last      = ele.prev;
                 last.next = null;
+            } else {
+                last  = null;
+                first = null;
             }
 
             count--;
